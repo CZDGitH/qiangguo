@@ -69,5 +69,4 @@ def open():
         chrome.quit()  # 退出
 
 if __name__ == '__main__':
-    # test11
     open()
