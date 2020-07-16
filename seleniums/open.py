@@ -31,7 +31,7 @@ def open():
         return app_src
     finally:
         # 判断是否登入
-        time.sleep(10) # 改为60s
+        time.sleep(60) # 改为60s
         is_login = chrome.find_element_by_xpath('//*[@id="root"]/div/div/section/div/div/div/div/div[4]/section/div[4]')
         print(is_login)
         if is_login:
