@@ -54,7 +54,7 @@ def open():
             windows = chrome.window_handles
             chrome.switch_to.window(windows[-1])
             time.sleep(3)
-            for i in range(1):
+            for i in range(10):
                 article = chrome.find_element_by_xpath('//*[@id="root"]/div/div/section/div/div/div/div/div/section/div/div/div/div/div/section/div/div/div/div/div/section/div/div/div/div/div[3]/section/div/div/div/div/div/section/div/div/div[1]/div/div['+str(i+1)+']/div/div/div[2]/span')
                 article.click()
                 time.sleep(3)
