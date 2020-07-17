@@ -5,6 +5,9 @@
 # @Email : zhida.chen@huafeng-cn.com
 # @File : open.py
 # @Software: PyCharm
+
+import random
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
@@ -42,7 +45,7 @@ def open():
             windows = chrome.window_handles
             chrome.switch_to.window(windows[-1])
 
-            read_article = chrome.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[3]/div[2]/div[3]/div[2]/div[2]/div')
+            read_article = chrome.find_element_by_xpath('//*[@id="app"]/div/div[2]/div/div[3]/div[2]/div[5]/div[2]/div[2]/div')
             read_article.click()
             # 跳转页面
             windows = chrome.window_handles
@@ -54,7 +57,7 @@ def open():
             windows = chrome.window_handles
             chrome.switch_to.window(windows[-1])
             time.sleep(3)
-            for i in range(10):
+            for i in range(18):
                 article = chrome.find_element_by_xpath('//*[@id="root"]/div/div/section/div/div/div/div/div/section/div/div/div/div/div/section/div/div/div/div/div/section/div/div/div/div/div[3]/section/div/div/div/div/div/section/div/div/div[1]/div/div['+str(i+1)+']/div/div/div[2]/span')
                 article.click()
                 time.sleep(3)
@@ -65,10 +68,10 @@ def open():
                 listen_and_read = chrome.find_element_by_xpath('//*[@id="root"]/div/section/div/div/div/div/div[2]/section/div/div/div/div/div/div/div[3]/div[1]/div[1]/audio')
                 # listen_and_read.click()
                 listen_and_read.send_keys(Keys.SPACE)
-                chrome.execute_script("window.scrollTo(0,document.body.scrollHeight/2)")
-                time.sleep(30)
-                chrome.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-                time.sleep(30)
+                for temp in range(5, 3, -1):
+                    height = 'window.scrollTo(0,document.body.scrollHeight/' + str(temp) + ')'
+                    chrome.execute_script(height)
+                    time.sleep(60)
                 # chrome.close()
                 windows = chrome.window_handles
                 chrome.switch_to.window(windows[3])
@@ -101,6 +104,7 @@ def open():
                     chrome.switch_to.window(windows[-2-j-i*4])
             news = chrome.find_element_by_xpath('//*[@id="0454"]/div/div/div/div/div/div/div/div[1]/div/div[2]/div[5]/div/div')
             news.click()
+            time.sleep(5)
             news_1 = chrome.find_element_by_xpath('//*[@id="17th9fq5c7l-5"]/div/div/div/div/div/div/section/div[3]/section/div/div/div[1]/div[1]/div[1]/section/div/div/div/div/div[1]/div/div/span/div')
             news_1.click()
             # 跳转页面
