@@ -29,7 +29,7 @@ def open():
         chrome.switch_to.frame(chrome.find_element_by_xpath("// iframe[contains( @ id, 'ddlogin-iframe')]"))
         app = chrome.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/div[1]/div[1]/img')
         app_src = app.get_attribute('src')
-        # print(app_src)
+        print(app_src)
         time.sleep(10)
         return app_src
     finally:
@@ -118,4 +118,4 @@ def open():
         chrome.quit()  # 退出
 
 if __name__ == '__main__':
-    print(open())
+    open()
